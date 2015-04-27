@@ -76,16 +76,22 @@ ROOT_URLCONF = 'todoproject.urls'
 
 WSGI_APPLICATION = 'todoproject.wsgi.application'
 
+import dj_database_url
 
-# Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+config = dj_database_url.config()
+if not config:
+    ''' Running locally, use a sqllite3 database for simplicity '''
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+else:
+    ''' Running on Heroku, use the supplied database config '''
+    DATABASES = {
+        'default': config
+    }
 
 
 # Internationalization
