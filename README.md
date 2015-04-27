@@ -5,7 +5,6 @@ This is a very basic Todo app made with Django and Django REST Framework (DRF), 
 ####Roadmap
 * ~~Basic REST Server~~
 * ~~Add Heroku-specific information~~
-* Make use of authentication header token to authenticate requests
 * Token Based Authentication
 * Basic Ember front end
 * implement account creation though REST API
