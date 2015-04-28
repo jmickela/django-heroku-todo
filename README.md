@@ -1,9 +1,12 @@
-## django-heroku-todo
-A ToDo list app backed built with Django and Django REST Framework, with a sample hosted on Heroku.
+## Basic Todo app
+
+This is a very basic Todo app made with Django and Django REST Framework (DRF), and hosted on Heroku. It serves as a simple example of hosting a Django site on Heroku, and making use of DRF to provide a generic REST interface. I will also implement a few different front ends to this site to create a Rosetta stone like example of how different front end technologies consume the exact same back end API.
 
 ####Roadmap
-1. ~~Basic REST Server~~
-2. Add Heroku-specific information
-3. Token Based Authentication
-4. Basic Ember front end
-5. Basic AngularJS front end
+* ~~Basic REST Server~~
+* ~~Add Heroku-specific information~~
+* Token Based Authentication
+* Basic Ember front end
+* implement account creation though REST API
+* Android front end
+* Basic AngularJS front end
