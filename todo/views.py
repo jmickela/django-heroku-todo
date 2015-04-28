@@ -1,13 +1,17 @@
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticated
 
 from .models import TodoItem, TodoList
 from .serializers import TodoItemSerializer, TodoListSerializer
+
+from rest_framework import permissions
 
 
 class TodoItemViewSet(ModelViewSet):
 	serializer_class = TodoItemSerializer
 	paginate_by = 25
 	paginate_by_param = 'page'
+	permission_classes = (IsAuthenticated,)
 
 	def get_queryset(self):
 		"""
@@ -16,7 +20,7 @@ class TodoItemViewSet(ModelViewSet):
 		:return:A queryset of list items that belong to this user.
 		"""
 		if self.request.user.is_anonymous():
-			return None
+			return TodoItem.objects.none()
 		return TodoItem.objects.filter(list__owner=self.request.user)
 
 
